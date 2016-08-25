@@ -3,34 +3,32 @@
 
   
   <meta content="text/html;  charset=utf-8" http-equiv="content-type"><title>R3</title></head><body>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.3/jquery.min.js"></script>
+  
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 <script type="text/javascript">
 
         $(document).ready(function () {
 
 			$('#mostrar_alert').click(function() {
-				if($('#btMeasureBase').val()=="" || $('#btMeasureCompare').val()=="" || $('#btPriceBase').val()=="")
-						/*Number($('#btMeasureBase').val())== 0 || Number($('#btMeasureCompare').val())==0 || Number($('#btPriceBase').val())==0*/
+				$('#log').empty();
+                if($('#btMeasureBase').val()=="" || $('#btMeasureCompare').val()=="" || $('#btPriceBase').val()=="")
+						
                         alert("Type all 3 values!");
 					
 				else
-					$('#log').empty();
+					{
+                        var varMeasureBase =Number($('#btMeasureBase').val());
+                        var varPriceBase =Number($('#btPriceBase').val());
+                        var varMeasureCompare =Number($('#btMeasureCompare').val());
+                        
+                        var varResult =(Number($('#btMeasureCompare').val()) * Number($('#btPriceBase').val())) / Number($('#btMeasureBase').val());
+                        
+                        document.getElementById('log').innerHTML += 'Can buy if price until: ' +  varResult;
+                    }
                     
-                    var varMeasureBase =Number($('#btMeasureBase').val());
-                    var varPriceBase =Number($('#btPriceBase').val());
-                    var varMeasureCompare =Number($('#btMeasureCompare').val());
                     
-                    var varResult =(Number($('#btMeasureCompare').val()) * Number($('#btPriceBase').val())) / Number($('#btMeasureBase').val());
-                    
-                    document.getElementById('log').innerHTML += 'Can buy if price until: ' +  varResult;
                     					
-                    /*var varPrice1 =Number($('#PriceP1').val());
-                    if (varPriceProduct2onUnit1 > varPrice1)
-                        alert("Product 1 is cheaper than Product 2");
-					if (varPriceProduct2onUnit1 < varPrice1)
-                        alert("Product 2 is cheaper than Product 1");
-                    if (varPriceProduct2onUnit1 = varPrice1)
-                        alert('Same price! Price P2:' + varPriceProduct2onUnit1 ' - Price P1:' + varPrice1);*/
+                    
 				});
         });
     
@@ -50,13 +48,13 @@ of 3</big></big></big></big></span></b></td>
       <td style="vertical-align: top;"><b style=""><span style="font-size: 12pt; font-family: &quot;Segoe UI&quot;,&quot;sans-serif&quot;; color: rgb(102, 102, 102);">Measure</span></b></td>
     </tr>
     <tr align="center">
-      <td style="vertical-align: top;"><input tabindex="0" value="0" name="btMeasureBase" id="btMeasureBase"></td>
+      <td style="vertical-align: top;"><input tabindex="1" value="0" name="btMeasureBase" id="btMeasureBase"></td>
     </tr>
     <tr align="center">
       <td style="vertical-align: top;"><b style=""><span style="font-size: 12pt; font-family: &quot;Segoe UI&quot;,&quot;sans-serif&quot;; color: rgb(102, 102, 102);">Price</span></b></td>
     </tr>
     <tr align="center">
-      <td style="vertical-align: top;"><input tabindex="1" value="0" name="btPriceBase" id="btPriceBase"></td>
+      <td style="vertical-align: top;"><input tabindex="2" value="0" name="btPriceBase" id="btPriceBase"></td>
     </tr>
     <tr style="color: white;">
     </tr>
@@ -69,7 +67,7 @@ of 3</big></big></big></big></span></b></td>
       </td>
     </tr>
     <tr>
-      <td style="vertical-align: top; text-align: center;"><input tabindex="2" value="0" name="btMeasureCompare" id="btMeasureCompare"> </td>
+      <td style="vertical-align: top; text-align: center;"><input tabindex="3" value="0" name="btMeasureCompare" id="btMeasureCompare"> </td>
     </tr>
     <tr>
       <td style="vertical-align: top; text-align: center;"><input id="mostrar_alert" value="Run!" type="button"> <br>
