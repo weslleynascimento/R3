@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns   = "http://www.w3.org/ns/widgets"
+    xmlns:gap   = "http://phonegap.com/ns/1.0"
+    id          = "com.lycos.r3"
+    versionCode = "10"
+    version     = "1.0.0" >
+
+<!-- versionCode is optional and Android only -->
+
+  <name>R3</name>
+
+  <description>
+      Simple rule of three application to help on supermarket.
+  </description>
+
+  <author href="https://weslleynascimento.github.io/R3/" email="weslley.nascimento@gmail.com">
+      Weslley Nascimento
+  </author>
+
+</widget>
