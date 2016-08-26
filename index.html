@@ -1,26 +1,31 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html><head>
 
-  
-  <meta content="text/html;  charset=utf-8" http-equiv="content-type"><title>R3</title></head><body>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+
 <script type="text/javascript">
 
         $(document).ready(function () {
 
 			$('#mostrar_alert').click(function() {
 				$('#log').empty();
-                if($('#btMeasureBase').val()=="" || $('#btMeasureCompare').val()=="" || $('#btPriceBase').val()=="")
+                if($('#txtMeasureBase').val()=="" || $('#txtMeasureCompare').val()=="" || $('#txtPriceBase').val()=="")
 						
                         alert("Type all 3 values!");
 					
 				else
 					{
-                        var varMeasureBase =Number($('#btMeasureBase').val());
-                        var varPriceBase =Number($('#btPriceBase').val());
-                        var varMeasureCompare =Number($('#btMeasureCompare').val());
+                        var varMeasureBase =Number($('#txtMeasureBase').val());
+                        var varPriceBase =Number($('#txtPriceBase').val());
+                        var varMeasureCompare =Number($('#txtMeasureCompare').val());
                         
-                        var varResult =(Number($('#btMeasureCompare').val()) * Number($('#btPriceBase').val())) / Number($('#btMeasureBase').val());
+                        var varResult =(Number($('#txtMeasureCompare').val()) * Number($('#txtPriceBase').val())) / Number($('#txtMeasureBase').val());
                         
                         document.getElementById('log').innerHTML += 'Can buy if price until: ' +  varResult;
                     }
@@ -31,65 +36,38 @@
 				});
         });
     
-    </script><br>
+</script>
 
-<table style="text-align: left; width: 100%; height: 100%;" border="0" cellpadding="2" cellspacing="2">
 
-  <tbody>
-    <tr align="center">
-      <td style="vertical-align: top;"><b style=""><span style="font-size: 12pt; font-family: &quot;Segoe UI&quot;,&quot;sans-serif&quot;; color: rgb(102, 102, 102);"><big><big><big><big>Rule
-of 3</big></big></big></big></span></b></td>
-    </tr>
-    <tr style="color: white;" align="center">
-      <td style="vertical-align: top; background-color: rgb(45, 91, 91);"><small><small><small><small><small><small><b style=""><span style="font-size: 12pt; font-family: &quot;Segoe UI&quot;,&quot;sans-serif&quot;;"><big><big><big><big>Base</big></big></big></big></span></b></small></small></small></small></small></small></td>
-    </tr>
-    <tr align="center">
-      <td style="vertical-align: top;"><b style=""><span style="font-size: 12pt; font-family: &quot;Segoe UI&quot;,&quot;sans-serif&quot;; color: rgb(102, 102, 102);">Measure</span></b></td>
-    </tr>
-    <tr align="center">
-      <td style="vertical-align: top;"><input type="number" style="text-align: center;" tabindex="1" name="btMeasureBase" id="btMeasureBase" pattern="[0-9]"></td>
-    </tr>
-    <tr align="center">
-      <td style="vertical-align: top;"><b style=""><span style="font-size: 12pt; font-family: &quot;Segoe UI&quot;,&quot;sans-serif&quot;; color: rgb(102, 102, 102);">Price</span></b></td>
-    </tr>
-    <tr align="center">
-      <td style="vertical-align: top;"><input type="number" style="text-align: center;" tabindex="2" name="btPriceBase" id="btPriceBase" pattern="[0-9]"></td>
-    </tr>
-    <tr style="color: white;" align="center">
-      <td style="vertical-align: top; background-color: rgb(45, 91, 91);"><small><small><small><small><small><small><b style=""><span style="font-size: 12pt; font-family: &quot;Segoe UI&quot;,&quot;sans-serif&quot;;"><big><big><big><big>Compare</big></big></big></big></span></b></small></small></small></small></small></small></td>
-    </tr>
-    <tr>
-      <td style="vertical-align: top;">
-      <div style="text-align: center;"><b style=""><span style="font-size: 12pt; font-family: &quot;Segoe UI&quot;,&quot;sans-serif&quot;; color: rgb(102, 102, 102);">Measure</span></b></div>
-      </td>
-    </tr>
-    <tr>
-      <td style="vertical-align: top; text-align: center;"><input type="number" style="text-align: center;" tabindex="3" name="btMeasureCompare" id="btMeasureCompare" pattern="[0-9]"></td>
+<div data-role="page">
+  <div data-role="header">
+  <h1>Rule of 3</h1>
+  </div>
 
-    </tr>
-    <tr>
-      <td style="vertical-align: top; text-align: center;"><input id="mostrar_alert" value="Run!" type="button"> <br>
-      </td>
-    </tr>
-    <tr>
-      <td style="vertical-align: top;">
+  <div data-role="main" class="ui-content">
+     <div data-role="header">
+        <h1>Base</h1>    
+     </div>
+     <div class="ui-field-contain">
+        <label for="fullname">Measure:</label>
+        <input type="number" name="txtMeasureBase" id="txtMeasureBase">
+        <label for="fullname">Price:</label>
+        <input type="number" name="txtPriceBase" id="txtPriceBase">
+     </div>
+     <div data-role="header">
+        <h1>Compare</h1>    
+     </div>
+     <div class="ui-field-contain">
+        <label for="fullname">Measure:</label>
+        <input type="number" name="txtMeasureCompare" id="txtMeasureCompare">
+      </div>
+      <input id="mostrar_alert" type="button"  value="Run!">
       <div style="text-align: center; font-weight: bold; color: rgb(51, 102, 102);" id="log"><big><big></big></big></div>
-      <br>
-      </td>
-    </tr>
-    <tr>
-      <td style="vertical-align: top;"><br>
-      </td>
-    </tr>
-    <tr>
-      <td style="vertical-align: top; text-align: right;"><span style="font-style: italic;">v1853</span><br>
-      </td>
-    </tr>
-  </tbody>
-</table>
+  </div>
+  <div data-role="footer">
+    <h1>v2.0949</h1>
+  </div>
+</div>
 
-<br>
-
-<br>
-
-</body></html>
+</body>
+</html>
