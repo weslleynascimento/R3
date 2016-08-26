@@ -9,12 +9,11 @@
 </head>
 <body>
 
-<script type="text/javascript">
 
-        $(document).ready(function () {
 
-			$('#mostrar_alert').click(function() {
-				$('#log').empty();
+<script type='text/javascript'>
+    function myFunction(){
+        		$('#log').empty();
                 if($('#txtMeasureBase').val()=="" || $('#txtMeasureCompare').val()=="" || $('#txtPriceBase').val()=="")
 						
                         alert("Type all 3 values!");
@@ -29,14 +28,11 @@
                         
                         document.getElementById('log').innerHTML += 'Can buy if price up to: ' +  varResult;
                     }
-                    
-                    
-                    					
-                    
-				});
-        });
-    
+         
+    }
 </script>
+
+
 
 
 <div data-role="page">
@@ -46,22 +42,22 @@
 
   <div data-role="main" class="ui-content">
      <div data-role="header">
-        <h1>Base</h1>    
+        <h1>Product base</h1>    
      </div>
      <div class="ui-field-contain">
         <label for="fullname">Measure:</label>
-        <input type="number" name="txtMeasureBase" id="txtMeasureBase">
+        <input type="number" name="txtMeasureBase" id="txtMeasureBase" style="text-align: center;" >
         <label for="fullname">Price:</label>
-        <input type="number" name="txtPriceBase" id="txtPriceBase">
+        <input type="number" name="txtPriceBase" id="txtPriceBase" style="text-align: center;" >
      </div>
      <div data-role="header">
-        <h1>Compare</h1>    
+        <h1>Product to compare</h1>    
      </div>
      <div class="ui-field-contain">
         <label for="fullname">Measure:</label>
-        <input type="number" name="txtMeasureCompare" id="txtMeasureCompare">
+        <input type="number" name="txtMeasureCompare" id="txtMeasureCompare" style="text-align: center;" >
       </div>
-      <input id="mostrar_alert" type="button"  value="Run!">
+      <a href="#" id="mylink" onclick="myFunction(); return false" class="ui-btn ui-corner-all ui-icon-refresh ui-btn-icon-top">Run!</a>
       <div style="text-align: center; font-weight: bold; color: rgb(51, 102, 102);" id="log"><big><big></big></big></div>
   </div>
   <div data-role="footer">
